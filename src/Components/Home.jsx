@@ -25,11 +25,11 @@ function Homepage() {
     <>
       <Nav />
       <section>
-        <div className="bg-black md:h-screen pt-20 px-10 pb-6 md:pb-0">
+        <div className="bg-black md:h-screen pt-24 md:pt-20 px-10 pb-6 md:pb-0">
           <div className="flex flex-col md:flex-row justify-between space-y-4 md:space-y-0 md:space-x-4 md:px-12">
             <div className="pt-5 md:pt-0 text-center md:text-start">
-              <p className="text-yellow-800 text-[2em] font-semibold md:text-[10em]">SEUN</p>
-              <p className="text-yellow-800 text-[2em] font-semibold md:text-[10em]">DEDE</p>
+              <p className="text-yellow-800 text-[4em] font-bold md:font-semibold md:text-[10em]">SEUN</p>
+              <p className="text-yellow-800 text-[4em] font-bold md:font-semibold md:text-[10em]">DEDE</p>
             </div>
             <div>
               <img
