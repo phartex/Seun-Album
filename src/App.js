@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+
 import Home from './Components/Home';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import CreateReview from './Components/CreateReview';

@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-
-// import SeunImage from "../../../image/dede-shot.jpg";
 import SeunImage  from "../Image/dede-shot.jpg"
 import Nav from "./Nav.jsx";
 
@@ -36,7 +34,7 @@ function Homepage() {
             <div>
               <img
                 src={SeunImage}
-                alt="A description of the image"
+                alt="seun "
                 width={400}
                 height={700}
                 className="rounded-full"
