@@ -43,7 +43,7 @@ function Homepage() {
           </div>
         </div>
 
-        <div className="md:px-10 py-5">
+        <div className="md:px-10 md:py-5">
           <p className="text-center text-5xl font-semibold pt-16 text-yellow-800">Reviews</p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-6">
             {reviews.map((post, index) => (
