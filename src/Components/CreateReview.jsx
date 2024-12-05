@@ -13,7 +13,8 @@ const CreateReview = () => {
     setIsLoading(true);
 
     try {
-      const response = await fetch('http://localhost:5070/api/Reviews', {
+      // const response = await fetch('http://localhost:5070/api/Reviews', {
+      const response = await fetch('https://albumwebapi.runasp.net/api/reviews', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

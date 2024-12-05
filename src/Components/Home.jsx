@@ -5,29 +5,30 @@ import SeunImage  from "../Image/dede-shot.jpg"
 import Nav from "./Nav.jsx";
 
 function Homepage() {
-//   const [reviews, setReviews] = useState([]);
+  const [reviews, setReviews] = useState([]);
 
   
-  const reviews = [
-    {
-      name: "fateru Tobi",
-      content: "i love every piece of this album, God bless minister seun"
-    },
-    {
-      name: "fateru Tobi",
-      content: "i love every piece of this album, God bless minister seun"
-    },
-    {
-      name: "Seun Dede",
-      content: "its an amazing album"
-    }
-  ];
+  // const reviews = [
+  //   {
+  //     name: "fateru Tobi",
+  //     content: "i love every piece of this album, God bless minister seun"
+  //   },
+  //   {
+  //     name: "fateru Tobi",
+  //     content: "i love every piece of this album, God bless minister seun"
+  //   },
+  //   {
+  //     name: "Seun Dede",
+  //     content: "its an amazing album"
+  //   }
+  // ];
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const response = await fetch("http://localhost:5070/api/reviews"); // Replace with your endpoint
+        // const response = await fetch("http://localhost:5070/api/reviews"); // Replace with your endpoint
+        const response = await fetch("https://albumwebapi.runasp.net/api/reviews");
         const data = await response.json();
-        // setReviews(data);
+        setReviews(data);
       } catch (error) {
         console.error("Error fetching posts:", error);
       }
