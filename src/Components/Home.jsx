@@ -75,7 +75,7 @@ function Homepage() {
             ))}
           </div>
 
-          <div className="text-center mt-6 pb-4">
+          <div className="text-center mt-7 pb-12 md:pb-4">
             <Link
               to="/create-review"
               className="border-2 border-yellow-800 px-6 py-4 text-yellow-800 hover:bg-yellow-800 hover:text-white font-semibold rounded-lg shadow"
