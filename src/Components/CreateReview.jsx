@@ -2,11 +2,13 @@ import React, { useState } from 'react';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Nav from './Nav';
+import { useNavigate } from 'react-router-dom';
 
 const CreateReview = () => {
   const [name, setName] = useState('');
   const [review, setReview] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -36,6 +38,7 @@ const CreateReview = () => {
 
       setName('');
       setReview('');
+      navigate('/');
     } catch (error) {
       toast.error('There was an issue submitting your review.', {
         position: 'top-right',
