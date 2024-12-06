@@ -38,7 +38,11 @@ const CreateReview = () => {
 
       setName('');
       setReview('');
-      navigate('/');
+
+      setTimeout(() => {
+        navigate('/');
+      }, 3000);
+     
     } catch (error) {
       toast.error('There was an issue submitting your review.', {
         position: 'top-right',
