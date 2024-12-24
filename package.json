@@ -7,6 +7,7 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.7.8",
+    "crypto-browserify": "^3.12.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^7.0.2",
@@ -26,9 +27,9 @@
       "react-app/jest"
     ],
     "rules": {
-    "no-unused-vars": "off",
-    "jsx-a11y/img-redundant-alt": "off"
-  }
+      "no-unused-vars": "off",
+      "jsx-a11y/img-redundant-alt": "off"
+    }
   },
   "browserslist": {
     "production": [
