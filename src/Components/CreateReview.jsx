@@ -3,6 +3,9 @@ import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Nav from './Nav';
 import { useNavigate } from 'react-router-dom';
+import { encryptData } from '../Services/AESEncryptionHelper';
+
+
 
 const CreateReview = () => {
   const [name, setName] = useState('');
@@ -10,20 +13,28 @@ const CreateReview = () => {
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
+  const secretKey = 't8TS+0ZAa0nDUyL2smoV+RupUX2iBtgRDJUgyHEkumU='; 
+
+
   const handleSubmit = async (e) => {
+   
     e.preventDefault();
     setIsLoading(true);
-
+ 
     try {
-      // const response = await fetch('http://localhost:5070/api/Reviews', {
-      const response = await fetch('https://albumwebapi.runasp.net/api/reviews', {
+      const { encryptedData: encryptedName, iv: nameIv } = encryptData(name, secretKey);
+      const { encryptedData: encryptedContent, iv: contentIv } = encryptData(review, secretKey);
+      const response = await fetch('http://localhost:5070/api/Reviews', {
+        // const response = await fetch('https://albumwebapi.runasp.net/api/reviews', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          name,
-          content: review,
+          // name:name,
+          // content: review,
+          name: encryptedName,
+          content: encryptedContent,
         }),
       });
 
@@ -42,7 +53,7 @@ const CreateReview = () => {
       setTimeout(() => {
         navigate('/');
       }, 3000);
-     
+
     } catch (error) {
       toast.error('There was an issue submitting your review.', {
         position: 'top-right',
@@ -126,3 +137,5 @@ const CreateReview = () => {
 };
 
 export default CreateReview;
+
+// wwIYSHDHeSKHMDNscDcy1CnNjnIvLB1Uo2R+TtWf5AEp4dfwADn+kKg5VFWeaBN9PSvjKBSdTj6J/YuC2ERBB9JzofoV7ek9lJGvaMwPGGIHxsFEHC4HM2YPFK+8rhXB9wI+vDhOnnWlX6cYIESr6dGrJpJSqj0eM63oK3UH3GvQlBj2G8cu+fGiiP++E/v1Dsgg3jy5T/Zslvuj1Qmi30wFr1sG8eItxzAVeVH04v+FTZ2TUJUbkfBQGv1rPj05MSPF7nv07abazBSZ5IXOBhrIBrEgyieb/MRmxpmZXs1OqKAaxZ47QlqKv/AhE30rWGpSVmG1HpRbnQY8GhkEQQ==
