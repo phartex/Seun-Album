@@ -23,10 +23,11 @@ function Homepage() {
   //   }
   // ];
   useEffect(() => {
+    
     const fetchPosts = async () => {
       try {
-        // const response = await fetch("http://localhost:5070/api/reviews"); // Replace with your endpoint
-        const response = await fetch("https://albumwebapi.runasp.net/api/reviews");
+        const response = await fetch("http://localhost:5070/api/reviews"); // Replace with your endpoint
+        // const response = await fetch("https://albumwebapi.runasp.net/api/reviews");
         const data = await response.json();
         setReviews(data);
       } catch (error) {

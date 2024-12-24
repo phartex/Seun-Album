@@ -3,7 +3,7 @@ import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Nav from './Nav';
 import { useNavigate } from 'react-router-dom';
-import { encryptData } from '../Services/AESEncryptionHelper';
+import { encryptData,secretKey } from '../Services/AESEncryptionHelper';
 
 
 
@@ -13,17 +13,15 @@ const CreateReview = () => {
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
-  const secretKey = 't8TS+0ZAa0nDUyL2smoV+RupUX2iBtgRDJUgyHEkumU='; 
-
 
   const handleSubmit = async (e) => {
-   
+   console.log('jfjj')
     e.preventDefault();
     setIsLoading(true);
  
     try {
-      const { encryptedData: encryptedName, iv: nameIv } = encryptData(name, secretKey);
-      const { encryptedData: encryptedContent, iv: contentIv } = encryptData(review, secretKey);
+      const { encryptedData: encryptedName } = encryptData(name, secretKey); 
+      const { encryptedData: encryptedContent } = encryptData(review, secretKey);
       const response = await fetch('http://localhost:5070/api/Reviews', {
         // const response = await fetch('https://albumwebapi.runasp.net/api/reviews', {
         method: 'POST',
@@ -35,8 +33,6 @@ const CreateReview = () => {
           // content: review,
           name: encryptedName,
           content: encryptedContent,
-          nameIv: nameIv, 
-          contentIv: contentIv,
         }),
       });
 
