@@ -24,8 +24,8 @@ const CreateReview = () => {
     try {
       const { encryptedData: encryptedName, iv: nameIv } = encryptData(name, secretKey);
       const { encryptedData: encryptedContent, iv: contentIv } = encryptData(review, secretKey);
-      const response = await fetch('http://localhost:5070/api/Reviews', {
-        // const response = await fetch('https://albumwebapi.runasp.net/api/reviews', {
+      // const response = await fetch('http://localhost:5070/api/Reviews', {
+        const response = await fetch('https://albumwebapi.runasp.net/api/reviews', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
